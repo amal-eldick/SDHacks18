@@ -59,8 +59,6 @@ public:
 private:
     string medName;
     float dosage;
-    int freq;
-    int time;
     bool sunday = 0;
     bool monday = 0;
     bool tuesday = 0;
