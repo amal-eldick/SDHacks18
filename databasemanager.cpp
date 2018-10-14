@@ -8,7 +8,7 @@ DataBaseManager::DataBaseManager()
 bool DataBaseManager::openDB()
 {
     db = QSqlDatabase::addDatabase("QSQLITE");    // "QSQLITE" Defines the type of database(in this case sqlite version3)
-    db.setDatabaseName("C:\\Users\\drott\\OneDrive\\Documents\\School\\CS1C\\Bulklub\\Up To Date\\BulkClub_SPRINT_2\\BulkClubDB.db");
+    db.setDatabaseName("/Users/aeldick/Desktop/sdhacks/Medication.db");
     // Links the  the directory to the database file to the database object
 
     if (!db.open())                                     // Opens a connection to the database and tests for connection failure
@@ -34,15 +34,15 @@ QSqlDatabase DataBaseManager::returnDB()
     return db;
 }
 
-void DataBaseManager::addCustomer(QString name, QString id, QString membership, QString date)
+void DataBaseManager::addMedication(QString Medname, QNumeric Dosage, QString frequency, QNumeric time)
 {
     openDB();
     QSqlQuery query2;
-    query2.prepare("INSERT INTO Customers (name, id, membership, date) VALUES (:name, :id, :membership, :date)");
-    query2.bindValue(":name", name);
-    query2.bindValue(":id", id);
-    query2.bindValue(":membership", membership);
-    query2.bindValue(":date", date);
+    query2.prepare("INSERT INTO Medication (Medname, Dosage, frequency, time) VALUES (:Medname, :Dosage, :frequency, :time)");
+    query2.bindValue(":Medname", Medname);
+    query2.bindValue(":Dosage", Dosage);
+    query2.bindValue(":frequency", frequency);
+    query2.bindValue(":time", time);
     query2.exec();
     closeDB();
 }
