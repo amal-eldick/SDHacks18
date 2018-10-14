@@ -9,8 +9,7 @@
 #ifndef MedicationClass_h
 #define MedicationClass_h
 
-#include <iostream>
-#include <string>
+#include <QString>
 
 using namespace std;
 
@@ -18,13 +17,13 @@ class Medication {
 public:
 
     //Constructor
-    Medication(const string &name, const float &dose){
+    Medication(const QString &name, const float &dose){
         setMedName(name);
         setDosage(dose);
     }
 
     //mutators
-    void setMedName(string name);
+    void setMedName(QString name);
     void setDosage(float dose);
     void setMon(bool monday);
     void setTues(bool tuesday);
@@ -38,7 +37,7 @@ public:
     void setEvening(bool evening);
 
     //accessors
-    string getMedName() {return medName;}
+    QString getMedName() {return medName;}
     float getDosage() {return dosage;}
     bool getMon() {return monday;}
     bool getTues() {return tuesday;}
@@ -54,7 +53,7 @@ public:
 
 
 private:
-    string medName;
+    QString medName;
     float dosage;
     bool sunday = 0;
     bool monday = 0;
@@ -70,7 +69,7 @@ private:
 
 ////// SETTERS //////
 
-void Medication::setMedName(string name) {
+void Medication::setMedName(QString name) {
     if(name != "")
         medName = name;
     else
