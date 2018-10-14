@@ -61,9 +61,9 @@ if __name__ == "__main__":
     print("say something...")
     guess = recognize_speech_from_mic(recognizer, microphone)
 
-
+    if()
         # show the user the transcription
     print("Transcription: {}".format(guess["transcription"]))
 
     
-
+    
