@@ -69,40 +69,53 @@ void DataBaseManager::updateMedication(QString oldName, QString newName, QNumeri
 QString DataBaseManager::returnNameFromSearch(QString Medname)
 {
     openDB();
-    QString name;
+    QSqlQuery query, query1;
+    int dosage;
+    bool morning, afternoon, evening, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday; 
+
 
     Medication meds; 
     
     query.prepare("SELECT Medname FROM Medication WHERE id LIKE '%" + Medname + "%'");
     query.exec();
     
-    while (query.next());
+
+    while (query.next())
     {
-        query.bindValue(":Dosage", meds.setDosage); 
-        query.bindValue(":Morning", meds.setMorning); 
-        query.bindValue(":Afternoon", meds.setAfternoon); 
-        query.bindVAlue("Evening", meds.setEvening); 
+        query.bindValue(":Dosage", dosage); 
+        query.bindValue(":Morning", morning); 
+        query.bindValue(":Afternoon", afternoon); 
+        query.bindVAlue("Evening", evening); 
         query.exec(); 
     }
-    name = query.value(0).toString();
-    
+
+    while(query1.next())
+    {
+        query1.bindValue(":Sunday", Sunday);
+        query1.bindValue(":Monday", Monday); 
+        query1.bindValue(":Tuesday", Thursdsay); 
+        query1.bindValue(":Wednesday", Wednesday); 
+        query1.bindValue(":Thursday", Thursday); 
+        query1.bindValue(":Friday", Friday); 
+    }
+
+
     closeDB();
     
+    meds.setDosage(dosage); 
+    meds.setMorning(morning); 
+    meds.setAfternoon(afternoon); 
+    meds.setEvening(evening); 
+
+    meds.setSun(Sunday); 
+    meds.setMon(Monday); 
+    meds.setTues(Tuesday); 
+    meds.setWed(Wednesday); 
+    meds.setThurs(Thursday); 
+    meds.setFri(Friday); 
+    meds.setSat(Saturday); 
+
+
     return meds;
 }
 
-QString DataBaseManager::returnDayFromSearch(QString Medname)
-{
-    openDB();
-    QNumeric time;
-    
-    query.prepare("SELECT Medname FROM Medication WHERE id LIKE '%" + time + "%'");
-    query.exec();
-    
-    query.next();
-    name = query.value(0).toNumeric();
-    
-    closeDB();
-    
-    return time;
-}

@@ -155,8 +155,4 @@ void Medication::setAfternoon(bool afternoon){
         afternoon = 0;
 }
 
-
-
-
-
 #endif /* MedicationClass_h */
