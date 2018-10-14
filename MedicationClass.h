@@ -22,7 +22,6 @@ public:
                const int &time, const string &day){
         setMedName(name);
         setDosage(dose);
-        setFreq(freq);
         setTime(time);
         setDay(day);
     }
@@ -30,7 +29,6 @@ public:
     //mutators
     void setMedName(string name);
     void setDosage(float dose);
-    void setFreq(int freqency);
     void setTime(int time);
     void setMon(bool monday); 
     void setTues(bool tuesday); 
@@ -39,11 +37,13 @@ public:
     void setFri(bool friday); 
     void setSat(bool saturday); 
     void setSun(bool sunday); 
+    void setMorning(bool morning); 
+    void setAfternoon(bool afternoon);
+    void setEvening(bool evening); 
     
     //accessors
     string getMedName() {return medName;}
     float getDosage() {return dosage;}
-    int getFreq() {return freq;}
     int getTime() {return time;}
     bool getMon() {return monday;} 
     bool getTues() {return tuesday;}
@@ -51,7 +51,12 @@ public:
     bool getThurs(){return thursday;}
     bool getFri() {return friday;}
     bool getSat() {return saturday;}
-    bool getSun() {return sunday}; 
+    bool getSun() {return sunday;}
+    bool getMorning() {return morning;}
+    bool getAfternoon() {return afternoon;}
+    bool getEvening() {return evening;}
+
+
 
 private:
     string medName;
@@ -65,6 +70,9 @@ private:
     bool thursday = 0;
     bool friday = 0;
     bool saturday = 0;
+    bool morning = 0; 
+    bool afternoon = 0; 
+    bool evening = 0; 
 };
 
 ////// SETTERS //////
@@ -145,6 +153,27 @@ void Medication::setSun(bool sunday){
         sunday = 1;
     else
         sunday = 0;
+}
+
+void Medication::setMorning(bool morning){
+    if(morning == 0)
+        morning = 1;
+    else
+        morning = 0;
+}
+
+void Medication::setEvening(bool evening){
+    if(evening == 0)
+        evening = 1;
+    else
+        evening = 0;
+}
+
+void Medication::setAfternoon(bool afternoon){
+    if(afternoon == 0)
+        afternoon = 1;
+    else
+        afternoon = 0;
 }
 
 

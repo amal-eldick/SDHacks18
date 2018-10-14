@@ -1,4 +1,5 @@
 #include "databasemanager.h"
+#include "MedicationClass.h"
 
 DataBaseManager::DataBaseManager()
 {
@@ -69,16 +70,25 @@ QString DataBaseManager::returnNameFromSearch(QString Medname)
 {
     openDB();
     QString name;
+
+    Medication meds; 
     
     query.prepare("SELECT Medname FROM Medication WHERE id LIKE '%" + Medname + "%'");
     query.exec();
     
-    query.next();
+    while (query.next());
+    {
+        query.bindValue(":Dosage", meds.setDosage); 
+        query.bindValue(":Morning", meds.setMorning); 
+        query.bindValue(":Afternoon", meds.setAfternoon); 
+        query.bindVAlue("Evening", meds.setEvening); 
+        query.exec(); 
+    }
     name = query.value(0).toString();
     
     closeDB();
     
-    return name;
+    return meds;
 }
 
 QString DataBaseManager::returnTimeFromSearch(QNumeric time)
