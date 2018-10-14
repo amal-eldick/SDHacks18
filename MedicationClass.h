@@ -9,7 +9,6 @@
 #ifndef MedicationClass_h
 #define MedicationClass_h
 
-#include <iostream>
 #include <QString>
 
 using namespace std;
