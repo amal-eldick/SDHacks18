@@ -16,34 +16,31 @@ using namespace std;
 
 class Medication {
 public:
-    
+
     //Constructor
-    Medication(const string &name, const float &dose, const int &freq,
-               const int &time, const string &day){
+    Medication(const string &name, const float &dose){
         setMedName(name);
         setDosage(dose);
-        setTime(time);
-        setDay(day);
     }
 
     //mutators
     void setMedName(string name);
     void setDosage(float dose);
-    void setMon(bool monday); 
-    void setTues(bool tuesday); 
-    void setWed(bool wednesday); 
-    void setThurs(bool thursday); 
-    void setFri(bool friday); 
-    void setSat(bool saturday); 
-    void setSun(bool sunday); 
-    void setMorning(bool morning); 
+    void setMon(bool monday);
+    void setTues(bool tuesday);
+    void setWed(bool wednesday);
+    void setThurs(bool thursday);
+    void setFri(bool friday);
+    void setSat(bool saturday);
+    void setSun(bool sunday);
+    void setMorning(bool morning);
     void setAfternoon(bool afternoon);
-    void setEvening(bool evening); 
-    
+    void setEvening(bool evening);
+
     //accessors
     string getMedName() {return medName;}
     float getDosage() {return dosage;}
-    bool getMon() {return monday;} 
+    bool getMon() {return monday;}
     bool getTues() {return tuesday;}
     bool getWed() {return wednesday;}
     bool getThurs(){return thursday;}
@@ -66,9 +63,9 @@ private:
     bool thursday = 0;
     bool friday = 0;
     bool saturday = 0;
-    bool morning = 0; 
-    bool afternoon = 0; 
-    bool evening = 0; 
+    bool morning = 0;
+    bool afternoon = 0;
+    bool evening = 0;
 };
 
 ////// SETTERS //////
@@ -78,7 +75,7 @@ void Medication::setMedName(string name) {
         medName = name;
     else
         medName = "John Doe";
-    
+
 }
 
 void Medication::setDosage(float dose){
