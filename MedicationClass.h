@@ -29,7 +29,6 @@ public:
     //mutators
     void setMedName(string name);
     void setDosage(float dose);
-    void setTime(int time);
     void setMon(bool monday); 
     void setTues(bool tuesday); 
     void setWed(bool wednesday); 
@@ -44,7 +43,6 @@ public:
     //accessors
     string getMedName() {return medName;}
     float getDosage() {return dosage;}
-    int getTime() {return time;}
     bool getMon() {return monday;} 
     bool getTues() {return tuesday;}
     bool getWed() {return wednesday;}
@@ -90,20 +88,6 @@ void Medication::setDosage(float dose){
         dosage = dose;
     else
         dosage = 0.0;
-}
-
-void Medication::setFreq(int frequency){
-    if(frequency > 0)
-        freq = frequency;
-    else
-        freq = 1;
-}
-
-void Medication::setTime(int time){
-    if(time > 0)
-        time = time;
-    else
-        time = 0;
 }
 
 void Medication::setMon(bool monday){

@@ -91,7 +91,7 @@ QString DataBaseManager::returnNameFromSearch(QString Medname)
     return meds;
 }
 
-QString DataBaseManager::returnTimeFromSearch(QNumeric time)
+QString DataBaseManager::returnDayFromSearch(QString Medname)
 {
     openDB();
     QNumeric time;
